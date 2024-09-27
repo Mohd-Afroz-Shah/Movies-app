@@ -1,0 +1,40 @@
+<div>
+<div *ngFor="let item of accordionData" class="border-b border-gray-200">
+  <!-- Accordion Header -->
+  <button
+    class="w-full text-left p-4 bg-gray-100 hover:bg-gray-200"
+    (click)="toggleAccordion(item)"
+  >
+    <span class="font-semibold">{{ item.title }}</span>
+    <span class="float-right">
+      <svg
+        class="h-5 w-5 inline"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </span>
+  </button>
+
+  <!-- Accordion Content -->
+  <div *ngIf="item.open" class="p-4 bg-white">
+    <ng-container  *ngFor="let data of movieGenres">
+      <div class="flex items-center mb-2">
+        <input
+          type="checkbox"
+          (change)="onCheckboxChange(data, $event)"
+          class="mr-2 rounded border-gray-300"
+        />
+        <label class="text-gray-700">{{ data}}</label>
+      </div>
+    </ng-container>
+  </div>
+</div>
+</div>

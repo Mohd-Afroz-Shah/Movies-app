@@ -1,0 +1,12 @@
+angular installation 
+ng new
+
+install tailwind and configure tailwind.config
+
+run the web
+ng s -o --port 5200
+
+ng add @angular/material
+
+create new components
+ng g c pages/Cards

@@ -1,0 +1,82 @@
+<div>
+  <mat-card appearance="outlined" class="p-5 ">
+    <div class="flex justify-center">
+      <div class="border-black">
+        <img src="{{movieData.Poster}}" alt="Movie Poster" class="w-64 h-[370px] rounded shadow-lg" />
+      </div>
+      <div class="text-sm ml-10">
+        <h5 class="text-1xl">{{ movieData.Title }} ({{ movieData.Year }})</h5>
+        <p class="text-sm text-gray-500">{{ movieData.Rated }} | {{ movieData.Runtime }} | {{ movieData.Genre }}</p>
+        <p><strong>Director:</strong> {{ movieData.Director }}</p>
+        <p><strong>Genre:</strong> {{ movieData.Genre }}</p>
+        <!-- <p><strong class="break-words w-60">Writer:</strong> {{ mmovieData.Writer }}</p> -->
+        <p><strong>Actors:</strong> {{ movieData.Actors }}</p>
+        <p><strong>Language:</strong> {{ movieData.Language }}</p>
+        <p><strong>Country:</strong> {{ movieData.Country }}</p>
+        <p><strong>Awards:</strong> {{ movieData.Awards }}</p>
+        <p><strong>Released:</strong> {{ movieData.Released }}</p>
+        <p><strong>IMDB Rating:</strong> {{ movieData.imdbRating }} / 10</p>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div>
+  <h5 class="font-bold text-xl pl-9 pb-2 pt-2">Movie Stills</h5>
+  <div class="flex justify-between pl-9 pr-9 pb-6 ">
+    <ng-container *ngFor="let img of movieData.Images">
+      <img [src]="img" alt="Movie Still" class="w-52 h-40 object-cover rounded-lg cursor-pointer"
+        (click)="openImageModal(img)"
+      />
+    </ng-container>
+  </div>
+  </div>
+<br>
+
+<!-- @for (movieData of mmovieData;track movieData){
+<div>
+  <mat-card appearance="outlined" class="p-5 ">
+    <div class="flex justify-center">
+      <div class="border-black">
+        <img src="{{movieData.Poster}}" alt="Movie Poster" class="w-64 h-[370px] rounded shadow-lg" />
+      </div>
+      <div class="text-sm ml-10">
+        <h5 class="text-1xl">{{ movieData.Title }} ({{ movieData.Year }})</h5>
+        <p class="text-sm text-gray-500">{{ movieData.Rated }} | {{ movieData.Runtime }} | {{ movieData.Genre }}</p>
+        <p><strong>Director:</strong> {{ movieData.Director }}</p>
+         <p><strong class="break-words w-60">Writer:</strong> {{ movieData.Writer }}</p> 
+        <p><strong>Actors:</strong> {{ movieData.Actors }}</p>
+        <p><strong>Language:</strong> {{ movieData.Language }}</p>
+        <p><strong>Country:</strong> {{ movieData.Country }}</p>
+        <p><strong>Awards:</strong> {{ movieData.Awards }}</p>
+        <p><strong>Released:</strong> {{ movieData.Released }}</p>
+        <p><strong>IMDB Rating:</strong> {{ movieData.imdbRating }} / 10</p>
+        <p><strong>Metascore:</strong> {{ movieData.Metascore }}</p>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div>
+  <h5 class="font-bold text-xl pl-9 pb-2 pt-2">Movie Stills</h5>
+  <div class="flex justify-between pl-9 pr-9 pb-6 ">
+    <ng-container *ngFor="let img of movieData.Images">
+      <img [src]="img" alt="Movie Still" class="w-52 h-40 object-cover rounded-lg cursor-pointer"
+        (click)="openImageModal(img)"
+      />
+    </ng-container>
+  </div>
+</div>
+<br>
+} -->
+
+
+<!-- Modal structure for displaying the clicked image -->
+<div *ngIf="selectedImage" class="fixed inset-0 bg-black bg-opacity-50 flex items-center 
+justify-center z-50">
+  <div class="relative">
+    <img [src]="selectedImage" alt="Selected Movie Still" class="w-[550px] h-[400px] rounded-lg" />
+    <button (click)="closeModal()" class="absolute top-0 right-0 bg-gray-800 text-white px-4 py-2 
+   ">
+      X
+    </button>
+  </div>
+</div> 
